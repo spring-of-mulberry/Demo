@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>掷色子</title>
+	</head>
+
+	<body>
+		<div id="new"></div>
+	</body>
+	<script>
+		//	产生一个随机数（要求在1到6之间)
+		var random = Math.floor(Math.random() * 6 + 1);
+		var str;
+		//		猜数字只有三次机会
+		var flag = false;
+		for(var i = 0; i < 3; i++) {
+			if(flag) {
+				break;
+
+			}
+			//		在输入框中输入一个输入
+			var guess = prompt("输入你猜的数：");
+			if(isNaN(guess) || guess > 6 || guess < 1) {
+				str = "输入有误";
+				flag = true;
+			} else {
+
+				if(guess > random) {
+					str = "你猜大了";
+				} else
+				if(guess < random) {
+					str = "你猜小了";
+				} else {
+					str = "你猜对了";
+					flag = true;
+				}
+			}
+			document.getElementById("new").innerHTML = str;
+		}
+	</script>
+
+</html>
